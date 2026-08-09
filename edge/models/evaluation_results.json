@@ -1,0 +1,87 @@
+{
+  "test_accuracy": 0.995,
+  "classification_report": {
+    "濒危": {
+      "precision": 1.0,
+      "recall": 0.9,
+      "f1-score": 0.9473684210526315,
+      "support": 20.0
+    },
+    "危急": {
+      "precision": 0.96875,
+      "recall": 1.0,
+      "f1-score": 0.9841269841269841,
+      "support": 62.0
+    },
+    "急症": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 141.0
+    },
+    "次急症": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 123.0
+    },
+    "非急症": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0,
+      "support": 54.0
+    },
+    "accuracy": 0.995,
+    "macro avg": {
+      "precision": 0.99375,
+      "recall": 0.9800000000000001,
+      "f1-score": 0.9862990810359232,
+      "support": 400.0
+    },
+    "weighted avg": {
+      "precision": 0.99515625,
+      "recall": 0.995,
+      "f1-score": 0.9949081035923141,
+      "support": 400.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      18,
+      2,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      62,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      141,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      123,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      54
+    ]
+  ],
+  "model_path": "models\\best_model_epoch_8_acc_0.9950.pth",
+  "test_samples": 400
+}

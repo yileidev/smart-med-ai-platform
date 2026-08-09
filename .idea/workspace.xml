@@ -4,15 +4,232 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8c823b13-8011-4d70-8664-7595a58e4b04" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/medical_web.iml" afterDir="false" />
+    <list default="true" id="154b1727-c500-465c-8d9a-1cb3058e9fd6" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/.env.aliyun" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/chroma_data/0d894e9a-475e-43ee-8c8e-887383e0c7be/data_level0.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/chroma_data/0d894e9a-475e-43ee-8c8e-887383e0c7be/header.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/chroma_data/0d894e9a-475e-43ee-8c8e-887383e0c7be/length.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/chroma_data/0d894e9a-475e-43ee-8c8e-887383e0c7be/link_lists.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/chroma_data/chroma.sqlite3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/expand_knowledge.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/init_chroma_db.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/MedicalWebApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/config/DroolsConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/config/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/config/LangChain4jConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/config/MedicalAIModelConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/config/MqttConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/config/PasswordEncoderConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/config/SimpleCacheConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/config/TestDataInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/config/WebSocketConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/AIIntegrationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/CacheController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/DoctorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/EdgeCloudCollaborativeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/EdgeDataController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/EdgeDeviceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/FeatureController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/MedicalAITestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/NurseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/NurseTriageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/RAGMedicalAIController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/TriageConfirmationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/controller/TriageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/dto/ApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/dto/DashboardOverviewDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/dto/EdgeMultimodalDataDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/dto/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/dto/LoginResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/dto/NurseCorrectionRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/dto/PageResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/Consultation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/DiagnosisHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/DiagnosisRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/DiagnosisResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/EdgeDeviceData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/HL7MessageMapping.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/MedicalRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/MedicalResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/Notification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/NurseCorrectionRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/OperationLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/Patient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/Permission.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/ResourceAllocation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/SystemLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/TriageRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/entity/VectorKnowledgeBase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/enums/TriageLevel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/exception/AIServiceException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/exception/BusinessException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/exception/MQTTException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/exception/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/listener/PatientEncryptionListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/model/BaichuanMedicalAIDiagnosis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/model/DiagnosisResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/ConsultationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/DiagnosisHistoryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/DiagnosisRecordRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/DiagnosisResultRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/EdgeDeviceDataRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/HL7MessageMappingRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/MedicalRecordRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/MedicalResourceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/NotificationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/NurseCorrectionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/OperationLogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/PatientRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/PermissionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/ResourceAllocationRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/SystemLogRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/TriageRecordRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/repository/VectorKnowledgeBaseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/security/JwtUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/BaichuanAIService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/BaichuanMedicalAIService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/ChromaVectorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/ConsultationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/DashboardService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/DiagnosisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/DroolsRuleEngineService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/EdgeCloudCollaborativeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/EdgeDataService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/ExportService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/HL7IntegrationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/HL7MessageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/HistoryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/MedicalResourceSchedulingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/MedicalResourceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/MedicalVectorKnowledgeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/MqttMessageHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/MultimodalDiagnosisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/NotificationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/NurseTriageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/PatientService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/RAGDiagnosisService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/ResourceSchedulingService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/SystemLogService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/TriageConfirmationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/TriageService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/service/WebSocketService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/util/EncryptionUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/util/RedisCacheUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/medical/util/TriageUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-dev.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-docker.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-h2.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-mysql.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-prod.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application-secure.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/data-h2.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/db/init-mysql.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/db/migration/V3__create_nurse_correction_table.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/rules/doctor-assignment.drl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/rules/medical-resource-allocation.drl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/rules/resource-allocation.drl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/rules/triage-priority.drl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/start_chroma_server.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/deploy/aliyun-deploy.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/.env.example" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/deploy.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/gui_main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/models/bert_tiny_triage.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/models/evaluation_results.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/models/rule_engine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/models/synthetic_training_data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/mqtt_client/mqtt_publisher.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/id_card_ocr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/kalman_filter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/local_voice_recognizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/models/vosk/vosk-model-small-cn-0.22/README" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/models/vosk/vosk-model-small-cn-0.22/am/final.mdl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/models/vosk/vosk-model-small-cn-0.22/conf/mfcc.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/models/vosk/vosk-model-small-cn-0.22/conf/model.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/models/vosk/vosk-model-small-cn-0.22/graph/HCLr.fst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/models/vosk/vosk-model-small-cn-0.22/graph/disambig_tid.int" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/models/vosk/vosk-model-small-cn-0.22/graph/phones/word_boundary.int" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/models/vosk/vosk-model-small-cn-0.22/ivector/final.dubm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/models/vosk/vosk-model-small-cn-0.22/ivector/final.ie" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/models/vosk/vosk-model-small-cn-0.22/ivector/final.mat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/models/vosk/vosk-model-small-cn-0.22/ivector/global_cmvn.stats" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/models/vosk/vosk-model-small-cn-0.22/ivector/online_cmvn.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/models/vosk/vosk-model-small-cn-0.22/ivector/splice.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/preprocessing/voice_processor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/sensors/ds18b20_driver.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/sensors/max30102_driver.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/sensors/usb_mic_driver.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/test_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge/train_model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/.env.production" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/auto-imports.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/nginx.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/admin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/doctor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/edge-device.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/nurse.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/api/triage-confirmation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/EdgeDeviceMonitor.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/components/VitalSignsForm.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/composables/useWebSocket.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/layout/index.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/stores/user.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/styles/index.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/utils/api.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/utils/request.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/utils/websocket.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/DoctorDashboard.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/Login.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/NurseDashboard.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/TriageConfirmation.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/admin/DiagnosedPatients.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/admin/PatientHistory.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/admin/ResourceManagement.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/admin/RuleManagement.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/admin/SystemConfig.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/admin/SystemLogs.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/admin/SystemMonitoring.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/admin/UserManagement.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/views/dashboard/Overview.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/vite.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/init.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mosquitto.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysql/my.cnf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/medical_web.iml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,245 +237,142 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="KubernetesApiPersistence">{}</component>
-  <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.6722659550052135" />
+      <entry key="MS500" value="4.382628323223692" />
+      <entry key="S2" value="12.460410857336145" />
+      <entry key="S5" value="23.35532353335636" />
+      <entry key="S10" value="32.73296455832249" />
+      <entry key="S30" value="43.409140623742665" />
+      <entry key="S60" value="46.9694922083996" />
+      <entry key="M2" value="48.92161908191864" />
+      <entry key="M5" value="50.152898809938385" />
+      <entry key="M10" value="50.57377293993003" />
+      <entry key="M15" value="50.715249963645476" />
+      <entry key="M30" value="50.8573246706281" />
+      <entry key="H1" value="50.92858707321038" />
+      <entry key="H2" value="50.9642746979876" />
+      <entry key="H4" value="50.982132636449606" />
+      <entry key="D1" value="50.99702145130947" />
+      <entry key="W1" value="50.99957447700596" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.5912016907354831" />
+      <entry key="MS500" value="4.333012755964874" />
+      <entry key="S2" value="12.416760616063186" />
+      <entry key="S5" value="23.323970368598143" />
+      <entry key="S10" value="32.71058078308585" />
+      <entry key="S30" value="43.398735782169275" />
+      <entry key="S60" value="46.96375551074058" />
+      <entry key="M2" value="48.91860001761526" />
+      <entry key="M5" value="50.151652562834684" />
+      <entry key="M10" value="50.57314316371121" />
+      <entry key="M15" value="50.71482861804569" />
+      <entry key="M30" value="50.85711324628773" />
+      <entry key="H1" value="50.928481172373516" />
+      <entry key="H2" value="50.964221700304435" />
+      <entry key="H4" value="50.98210612577955" />
+      <entry key="D1" value="50.99701703122057" />
+      <entry key="W1" value="50.999573845524424" />
+    </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 3
+  &quot;associatedIndex&quot;: 2,
+  &quot;fromUser&quot;: false
 }</component>
-  <component name="ProjectId" id="352tqPiSjp03YoQEUMz9a5gn7pB" />
+  <component name="ProjectId" id="3HbGGHtzqWVqffdd8qqYrVEH2JH" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Docker.backend/Dockerfile build.executor": "Run",
-    "JavaScript 调试.demo-offline.html.executor": "Run",
-    "Maven.medical-web-backend [clean].executor": "Run",
-    "Maven.medical-web-backend [compile].executor": "Run",
-    "Maven.medical-web-backend [org.springframework.boot:spring-boot-maven-plugin:2.7.14:run].executor": "Run",
-    "Maven.medical-web-backend [org.springframework.boot:spring-boot-maven-plugin:2.7.14:start].executor": "Run",
-    "Maven.medical-web-backend [package].executor": "Run",
-    "Maven.medical-web-backend [validate].executor": "Run",
-    "Maven.medical-web-backend [verify].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.main.executor": "Run",
-    "Python.start_chroma_server.executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.MedicalWebApplication.executor": "Run",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "wangyilei",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/19692/Desktop/medical_web_20251128（第一版）",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "C:/Users/SocialMED/Desktop/项目/medical_web/src/Main.java",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "vue.rearranger.settings.migration": "true",
-    "应用程序.MedicalWebApplication.executor": "Run",
-    "应用程序.medical.executor": "Run",
-    "应用程序.package com.medical;         ..executor": "Run"
+    "settings.editor.selected.configurable": "vcs.Git",
+    "ts.external.directory.path": "D:\\software\\IDEA\\IntelliJ IDEA 2026.1.4\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external"
   }
 }]]></component>
-  <component name="ReactorSettings">
-    <option name="notificationShown" value="true" />
-  </component>
-  <component name="RunManager" selected="Docker.backend/Dockerfile build">
-    <configuration name="MedicalWebApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.medical.MedicalWebApplication" />
-      <module name="medical-web-backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.medical.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="medical_web" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/edge" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/edge/main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="start_chroma_server" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="medical_web" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/backend" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/backend/start_chroma_server.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="MedicalWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="medical-web-backend" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.medical.MedicalWebApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
-      <method v="2" />
-    </configuration>
-    <configuration name="backend/Dockerfile build" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="imageTag" value="maven3.9.4-openjdk-17-slim_build" />
-          <option name="buildCliOptions" value="--target build" />
-          <option name="buildOnly" value="true" />
-          <option name="sourceFilePath" value="backend/Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Docker.backend/Dockerfile build" />
-        <item itemvalue="Python.start_chroma_server" />
-        <item itemvalue="Python.main" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PY-251.29188.22" />
-        <option value="bundled-python-sdk-1f1b7bcced7d-64d779b69b7a-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-251.29188.22" />
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.26222.65" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.26222.65" />
       </set>
     </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
-      <changelist id="8c823b13-8011-4d70-8664-7595a58e4b04" name="更改" comment="" />
-      <created>1762320187438</created>
+      <changelist id="154b1727-c500-465c-8d9a-1cb3058e9fd6" name="更改" comment="" />
+      <created>1786129258293</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1762320187438</updated>
-      <workItem from="1762321687863" duration="6611000" />
-      <workItem from="1762422876815" duration="1365000" />
-      <workItem from="1762424291855" duration="428000" />
-      <workItem from="1762485222960" duration="31000" />
-      <workItem from="1762486413797" duration="50000" />
-      <workItem from="1762486592941" duration="273000" />
-      <workItem from="1762488256383" duration="5065000" />
-      <workItem from="1762498666397" duration="859000" />
-      <workItem from="1762499556710" duration="599000" />
-      <workItem from="1762502554745" duration="28000" />
-      <workItem from="1764055425199" duration="8810000" />
-      <workItem from="1764211666719" duration="11230000" />
-      <workItem from="1764234488047" duration="3749000" />
-      <workItem from="1764297653900" duration="14014000" />
-      <workItem from="1767287158712" duration="5109000" />
-      <workItem from="1767575291173" duration="3081000" />
-      <workItem from="1768229859506" duration="47000" />
-      <workItem from="1768469998777" duration="70000" />
+      <updated>1786129258293</updated>
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnknownFeatures">
-    <option featureType="dependencySupport" implementationName="java:org.springframework.security:spring-security-core" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-core" />
-    <option featureType="dependencySupport" implementationName="java:org.drools:drools-core" />
-    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
-    <option featureType="dependencySupport" implementationName="javascript:npm:vite" />
-    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
-    <option featureType="dependencySupport" implementationName="executable:kubectl" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.data:spring-data-commons" />
-    <option featureType="dependencySupport" implementationName="java:org.hibernate.validator:hibernate-validator" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-webmvc" />
-    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-websocket" />
-    <option featureType="dependencySupport" implementationName="executable:docker" />
-    <option featureType="dependencySupport" implementationName="java:jakarta.persistence:jakarta.persistence-api" />
-    <option featureType="dependencySupport" implementationName="javascript:npm:vue" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework:spring-messaging" />
-    <option featureType="dependencySupport" implementationName="java:org.springframework.boot:spring-boot" />
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="debug" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE.value" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE.hash" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE.coder" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE.coder" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE.coder" />
-        <watch expression="debug" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE.value" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE.hash" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE.coder" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE.coder" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE.coder" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE" />
-        <watch expression="sun.security.util.PolicyUtil.NONE" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE.value" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE.coder" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE.hash" />
-        <watch expression="sun.security.util.PolicyUtil.P11KEYSTORE.hashIsZero" />
-        <watch expression="sun.security.util.PolicyUtil.NONE.value" />
-        <watch expression="sun.security.util.PolicyUtil.NONE" />
-      </configuration>
-    </watches-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MedicalWebApplication_java$start_chroma_server.coverage" NAME="start_chroma_server 覆盖结果" MODIFIED="1768229901072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/backend" />
-    <SUITE FILE_PATH="coverage/MedicalWebApplication_java$main.coverage" NAME="main 覆盖结果" MODIFIED="1768229891804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/edge" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="wangyilei" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

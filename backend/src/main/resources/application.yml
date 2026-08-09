@@ -1,0 +1,127 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:h2}  # 环境变量控制：h2(默认) 或 mysql
+  application:
+    name: medical-web-backend
+  main:
+    allow-circular-references: true  # 允许循环依赖
+        
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  
+  # Redis缓存配置
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    database: 0
+    timeout: 3000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-idle: 8
+        min-idle: 0
+        max-wait: -1ms
+  
+  # 缓存配置（可选）
+  cache:
+    type: ${CACHE_TYPE:none}  # none(默认无缓存) 或 redis(启用Redis)
+    redis:
+      time-to-live: 600000  # 默认10分钟
+      cache-null-values: false
+      use-key-prefix: true
+      key-prefix: "medical:"
+
+# JWT配置
+jwt:
+  secret: ${JWT_SECRET:medical-web-jwt-secret-key-2023-change-this-in-production}
+  expiration: ${JWT_EXPIRATION:86400000} # 24小时
+
+# 🔒 数据加密配置
+encryption:
+  # AES-256密钥（生产环境必须通过环境变量设置）
+  key: ${ENCRYPTION_KEY:MedicalTriageSystem2024SecretKey!}
+  # 是否启用数据库字段加密
+  database-encryption-enabled: true
+  # 加密算法
+  algorithm: AES/GCM/NoPadding
+
+# MQTT配置
+mqtt:
+  broker:
+    url: tcp://localhost:1883  # MQTT代理地址
+  client:
+    id: medical-cloud-server   # 客户端ID
+  username: ""                 # MQTT用户名（可选）
+  password: ""                 # MQTT密码（可选）
+  topic:
+    triage: "medical/triage/data"         # 分诊数据主题
+    device:
+      status: "medical/device/status"     # 设备状态主题
+    heartbeat: "medical/device/heartbeat" # 心跳主题
+    final: "medical/triage/final"         # 最终分诊结果主题
+
+# 医疗AI模型配置 - LangChain4j + 百川智能 + Chroma向量数据库
+medical:
+  ai:
+    # AI提供商选择: baichuan(百川智能医疗大模型)
+    provider: "baichuan"
+    model:
+      base-url: ${BAICHUAN_BASE_URL:https://api.baichuan-ai.com/v1}
+      api-key: ${BAICHUAN_API_KEY:your_baichuan_api_key_here}
+      name: ${BAICHUAN_MODEL_NAME:Baichuan2-Turbo-192k}  # 百川智能通用模型（长上下文版本，支持医疗场景）
+      temperature: ${BAICHUAN_TEMPERATURE:0.2}              # 根据百川文档，医疗场景建议0.2-0.3
+      max-tokens: ${BAICHUAN_MAX_TOKENS:512}               # 增加token数支持RAG增强回答
+  
+  # 向量数据库配置
+  vector:
+    chroma:
+      enable: ${CHROMA_ENABLE:false}                           # RAG功能开关（需启动ChromaDB）
+      url: ${CHROMA_URL:http://localhost:8000}          # Chroma数据库服务地址
+      collection: ${CHROMA_COLLECTION:medical-knowledge}       # 医疗知识集合名称
+    embedding:
+      model: "all-minilm-l6-v2"            # 嵌入模型
+      dimension: 384                        # 向量维度
+    
+    # 医疗专业配置
+    medical:
+      enable-drug-interaction-check: true    # 启用药物相互作用检查
+      enable-prognosis-assessment: true      # 启用预后评估
+      confidence-threshold: 0.8              # 诊断置信度阈值
+      max-differential-diagnosis: 5          # 最大鉴别诊断数量
+
+# Drools规则引擎配置
+drools:
+  rules:
+    path: "classpath:rules/"
+    reload: true  # 开发环境下允许热重载规则
+
+# 日志配置
+logging:
+  level:
+    root: INFO
+    com.medical: DEBUG
+    org.springframework: INFO
+    org.springframework.boot: INFO
+    org.springframework.security: DEBUG
+    org.hibernate: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  file:
+    name: logs/medical-web.log
+    max-size: 10MB
+    max-history: 30
+
+# 跨域配置
+cors:
+  allowed-origins: http://localhost:3000,http://localhost:5173
+  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+  allowed-headers: "*"
+  allow-credentials: true

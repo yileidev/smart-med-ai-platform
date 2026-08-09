@@ -1,0 +1,110 @@
+// 全局样式
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', '微软雅黑', Arial, sans-serif;
+  overflow: hidden;
+}
+
+// 布局样式
+.layout-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e4e7ed;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+}
+
+.layout-sidebar {
+  background: #001529;
+  overflow: hidden;
+}
+
+.layout-content {
+  flex: 1;
+  background: #f0f2f5;
+  padding: 20px;
+  overflow: hidden;
+}
+
+// 卡片样式
+.content-card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  
+  .card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+}
+
+// 统计卡片
+.stats-card {
+  text-align: center;
+  padding: 24px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 8px;
+  
+  .stats-number {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .stats-label {
+    font-size: 14px;
+    opacity: 0.9;
+  }
+  
+  &.success {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  }
+  
+  &.warning {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  }
+  
+  &.danger {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+  }
+  
+  &.info {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  }
+}
+
+// 表格样式
+.el-table {
+  .el-table__header {
+    th {
+      background: #fafafa;
+      color: #333;
+      font-weight: 500;
+    }
+  }
+}
+
+// 按钮组
+.btn-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

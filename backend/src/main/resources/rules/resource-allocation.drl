@@ -1,0 +1,186 @@
+package com.medical.rules;
+
+import com.medical.entity.TriageRecord;
+import com.medical.entity.DiagnosisResult;
+import com.medical.entity.ResourceAllocation;
+import java.util.List;
+
+global List<String> availableBeds;
+global List<String> availableEquipment;
+global org.slf4j.Logger logger;
+
+// 规则1：濒危患者（1级）- 最高优先级
+rule "Critical Priority Level 1"
+    when
+        $triage: TriageRecord(triageLevel == 1)
+        $allocation: ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setPriorityScore(100);
+        $allocation.setEstimatedWaitTime(0);
+        $allocation.setAllocatedDepartment("急诊抢救室");
+        $allocation.setSpecialRequirements("立即处理，配备最高级医疗团队");
+        logger.info("濒危患者资源调度：患者ID {} 分配至急诊抢救室", $triage.getPatient().getId());
+end
+
+// 规则2：危急患者（2级）- 高优先级
+rule "Urgent Priority Level 2"
+    when
+        $triage: TriageRecord(triageLevel == 2)
+        $allocation: ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setPriorityScore(80);
+        $allocation.setEstimatedWaitTime(5);
+        $allocation.setAllocatedDepartment("急诊科");
+        $allocation.setSpecialRequirements("快速处理通道");
+        logger.info("危急患者资源调度：患者ID {} 预计等待5分钟", $triage.getPatient().getId());
+end
+
+// 规则3：急症患者（3级）- 中等优先级
+rule "Semi-Urgent Priority Level 3"
+    when
+        $triage: TriageRecord(triageLevel == 3)
+        $allocation: ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setPriorityScore(60);
+        $allocation.setEstimatedWaitTime(15);
+        $allocation.setAllocatedDepartment("急诊科");
+        $allocation.setSpecialRequirements("标准急诊流程");
+        logger.info("急症患者资源调度：患者ID {} 预计等待15分钟", $triage.getPatient().getId());
+end
+
+// 规则4：次急症患者（4级）- 较低优先级
+rule "Less Urgent Priority Level 4"
+    when
+        $triage: TriageRecord(triageLevel == 4)
+        $allocation: ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setPriorityScore(40);
+        $allocation.setEstimatedWaitTime(30);
+        $allocation.setAllocatedDepartment("急诊科");
+        $allocation.setSpecialRequirements("常规处理");
+        logger.info("次急症患者资源调度：患者ID {} 预计等待30分钟", $triage.getPatient().getId());
+end
+
+// 规则5：非急症患者（5级）- 最低优先级
+rule "Non-Urgent Priority Level 5"
+    when
+        $triage: TriageRecord(triageLevel == 5)
+        $allocation: ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setPriorityScore(20);
+        $allocation.setEstimatedWaitTime(60);
+        $allocation.setAllocatedDepartment("门诊科");
+        $allocation.setSpecialRequirements("建议转门诊处理");
+        logger.info("非急症患者资源调度：患者ID {} 建议转门诊", $triage.getPatient().getId());
+end
+
+// 规则6：心血管疾病专科调度
+rule "Cardiovascular Department Allocation"
+    when
+        $triage: TriageRecord(chiefComplaint matches ".*胸痛.*|.*心悸.*|.*心律不齐.*")
+        $allocation: ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setAllocatedDepartment("心内科");
+        $allocation.setSpecialRequirements("心电监护，心电图机");
+        logger.info("心血管症状患者分配至心内科：患者ID {}", $triage.getPatient().getId());
+end
+
+// 规则7：呼吸系统疾病专科调度
+rule "Respiratory Department Allocation"
+    when
+        $triage: TriageRecord(chiefComplaint matches ".*呼吸困难.*|.*咳嗽.*|.*气喘.*")
+        $allocation: ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setAllocatedDepartment("呼吸科");
+        $allocation.setSpecialRequirements("吸氧设备，胸部X光");
+        logger.info("呼吸系统症状患者分配至呼吸科：患者ID {}", $triage.getPatient().getId());
+end
+
+// 规则8：消化系统疾病专科调度
+rule "Gastroenterology Department Allocation"
+    when
+        $triage: TriageRecord(chiefComplaint matches ".*腹痛.*|.*呕吐.*|.*腹泻.*")
+        $allocation: ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setAllocatedDepartment("消化科");
+        $allocation.setSpecialRequirements("腹部B超，血液检查");
+        logger.info("消化系统症状患者分配至消化科：患者ID {}", $triage.getPatient().getId());
+end
+
+// 规则9：神经系统疾病专科调度
+rule "Neurology Department Allocation"
+    when
+        $triage: TriageRecord(chiefComplaint matches ".*头痛.*|.*眩晕.*|.*意识.*|.*抽搐.*")
+        $allocation: ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setAllocatedDepartment("神经科");
+        $allocation.setSpecialRequirements("CT扫描，神经系统检查");
+        logger.info("神经系统症状患者分配至神经科：患者ID {}", $triage.getPatient().getId());
+end
+
+// 规则10：外伤患者专科调度
+rule "Trauma Department Allocation"
+    when
+        $triage: TriageRecord(chiefComplaint matches ".*外伤.*|.*骨折.*|.*创伤.*")
+        $allocation: ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setAllocatedDepartment("外科");
+        $allocation.setSpecialRequirements("X光检查，外科器械");
+        logger.info("外伤患者分配至外科：患者ID {}", $triage.getPatient().getId());
+end
+
+// 规则11：高龄患者优先级提升
+rule "Elderly Patient Priority Boost"
+    when
+        $triage: TriageRecord(patient.age >= 65)
+        $allocation: ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setPriorityScore($allocation.getPriorityScore() + 10);
+        $allocation.setSpecialRequirements($allocation.getSpecialRequirements() + "，高龄患者特殊关注");
+        logger.info("高龄患者优先级提升：患者ID {} 年龄 {}", $triage.getPatient().getId(), $triage.getPatient().getAge());
+end
+
+// 规则12：儿童患者特殊关注
+rule "Pediatric Patient Special Care"
+    when
+        $triage: TriageRecord(patient.age <= 14)
+        $allocation: ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setAllocatedDepartment("儿科急诊");
+        $allocation.setSpecialRequirements($allocation.getSpecialRequirements() + "，儿科专业医护");
+        logger.info("儿童患者分配至儿科急诊：患者ID {} 年龄 {}", $triage.getPatient().getId(), $triage.getPatient().getAge());
+end
+
+// 规则13：夜间时段调整
+rule "Night Shift Resource Adjustment"
+    when
+        $allocation: ResourceAllocation()
+        eval(isNightShift())
+    then
+        $allocation.setEstimatedWaitTime($allocation.getEstimatedWaitTime() + 15);
+        $allocation.setSpecialRequirements($allocation.getSpecialRequirements() + "，夜间值班");
+        logger.info("夜间时段资源调整，等待时间延长");
+end
+
+// 规则14：重复就诊患者优化
+rule "Repeat Patient Optimization"
+    when
+        $triage: TriageRecord(patient.phoneNumber != null)
+        $allocation: ResourceAllocation(triageRecord == $triage)
+        eval(isRepeatPatient($triage.getPatient().getPhoneNumber()))
+    then
+        $allocation.setPriorityScore($allocation.getPriorityScore() + 5);
+        $allocation.setSpecialRequirements($allocation.getSpecialRequirements() + "，既往病史参考");
+        logger.info("重复就诊患者优化：患者ID {}", $triage.getPatient().getId());
+end
+
+// 辅助函数（需要在Java中实现）
+function boolean isNightShift() {
+    java.time.LocalTime now = java.time.LocalTime.now();
+    return now.getHour() >= 20 || now.getHour() <= 6;
+}
+
+function boolean isRepeatPatient(String phoneNumber) {
+    // 简化实现，实际应查询数据库
+    return phoneNumber != null && phoneNumber.length() == 11;
+}

@@ -1,0 +1,108 @@
+version: '3.8'
+
+services:
+  # MySQL数据库
+  mysql:
+    image: mysql:8.0
+    container_name: medical_web_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}  # 🔴 必须通过环境变量设置
+      MYSQL_DATABASE: medical_web
+      MYSQL_USER: medical
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}  # 🔴 必须通过环境变量设置
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - medical_network
+
+  # Redis缓存
+  redis:
+    image: redis:7-alpine
+    container_name: medical_web_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - medical_network
+
+  # MQTT Broker - 边缘端与云端通信
+  mosquitto:
+    image: eclipse-mosquitto:2
+    container_name: medical_web_mqtt
+    restart: always
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+    networks:
+      - medical_network
+
+  # 后端应用
+  backend:
+    build: ./backend
+    container_name: medical_web_backend
+    restart: always
+    depends_on:
+      - mysql
+      - redis
+    environment:
+      SPRING_PROFILES_ACTIVE: docker,secure
+      # 🛡️ 数据库安全配置
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_NAME: medical_web
+      DB_USERNAME: medical
+      DB_PASSWORD: ${MYSQL_PASSWORD}
+      # 🛡️ JWT安全配置
+      JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRATION: 86400000
+      # 🛡️ AI服务配置
+      BAICHUAN_API_KEY: ${BAICHUAN_API_KEY}
+      BAICHUAN_BASE_URL: https://api.baichuan-ai.com/v1
+      # 🛡️ 其他配置
+      MQTT_HOST: mosquitto
+      MQTT_PORT: 1883
+      APP_ENV: production
+      LOG_LEVEL: INFO
+    ports:
+      - "8080:8080"
+    volumes:
+      - backend_logs:/app/logs
+    networks:
+      - medical_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/api/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # 前端应用
+  frontend:
+    build: ./frontend
+    container_name: medical_web_frontend
+    restart: always
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+    networks:
+      - medical_network
+
+volumes:
+  mysql_data:
+    driver: local
+  redis_data:
+    driver: local
+  backend_logs:
+    driver: local
+
+networks:
+  medical_network:
+    driver: bridge

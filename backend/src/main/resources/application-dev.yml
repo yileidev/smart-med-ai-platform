@@ -1,0 +1,44 @@
+# 本地开发环境配置
+spring:
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:medical_web}?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:123456}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    
+  jpa:
+    hibernate:
+      ddl-auto: update  # 开发环境自动更新表结构
+    show-sql: true      # 显示SQL日志
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+
+# JWT配置
+jwt:
+  secret: ${JWT_SECRET:medical-web-jwt-secret-key-for-development-only-2023}
+  expiration: ${JWT_EXPIRATION:86400000}
+
+# AI配置
+medical:
+  ai:
+    provider: "baichuan"
+    model:
+      base-url: ${BAICHUAN_BASE_URL:https://api.baichuan-ai.com/v1}
+      api-key: ${BAICHUAN_API_KEY:sk-ba0153c08177bbba902db4b5118446b5}
+      name: ${BAICHUAN_MODEL_NAME:Baichuan2-Turbo-192k}
+      temperature: ${BAICHUAN_TEMPERATURE:0.2}
+      max-tokens: ${BAICHUAN_MAX_TOKENS:512}
+  
+  vector:
+    chroma:
+      url: ${CHROMA_URL:http://localhost:8000}
+      collection: ${CHROMA_COLLECTION:medical-knowledge}
+
+# 日志配置
+logging:
+  level:
+    com.medical: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG

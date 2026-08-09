@@ -1,0 +1,134 @@
+package com.medical.rules
+
+import com.medical.entity.TriageRecord
+import com.medical.entity.DiagnosisResult
+import com.medical.entity.ResourceAllocation
+import com.medical.entity.User
+import java.util.List
+
+global List<User> availableDoctors
+global List<String> availableBeds
+global List<String> availableEquipment
+
+// 规则1：I级分诊（红色）- 立即分配最优资源
+rule "Critical Patient Resource Allocation"
+    when
+        $triage : TriageRecord(triageLevel == 1)
+        $diagnosis : DiagnosisResult(triageRecord == $triage)
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        // 分配急诊科
+        $allocation.setAllocatedDepartment("急诊科");
+        
+        // 分配最高优先级
+        $allocation.setPriorityScore(100);
+        
+        // 立即处理，无等待时间
+        $allocation.setEstimatedWaitTime(0);
+        
+        // 分配抢救床位
+        $allocation.setAllocatedBed("抢救室-01");
+        
+        // 分配必要设备
+        $allocation.setAllocatedResources("心电监护仪,呼吸机,除颤仪");
+        
+        // 分配经验丰富的医生
+        $allocation.setAllocationReason("I级分诊-濒危患者，需要立即抢救");
+        
+        System.out.println("规则触发：I级分诊患者分配抢救资源");
+end
+
+// 规则2：II级分诊（橙色）- 优先分配资源
+rule "Urgent Patient Resource Allocation"
+    when
+        $triage : TriageRecord(triageLevel == 2)
+        $diagnosis : DiagnosisResult(triageRecord == $triage)
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setAllocatedDepartment("急诊科");
+        $allocation.setPriorityScore(80);
+        $allocation.setEstimatedWaitTime(10);
+        $allocation.setAllocatedBed("急诊床位-A区");
+        $allocation.setAllocatedResources("心电监护仪,氧气");
+        $allocation.setAllocationReason("II级分诊-危急患者，10分钟内处理");
+        
+        System.out.println("规则触发：II级分诊患者优先分配资源");
+end
+
+// 规则3：胸痛患者特殊处理
+rule "Chest Pain Patient Allocation"
+    when
+        $triage : TriageRecord(chiefComplaint matches ".*胸痛.*")
+        $diagnosis : DiagnosisResult(triageRecord == $triage)
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setAllocatedDepartment("心内科");
+        $allocation.setPriorityScore($allocation.getPriorityScore() + 20);
+        String currentResources = $allocation.getAllocatedResources();
+        if (currentResources != null && !currentResources.isEmpty()) {
+            $allocation.setAllocatedResources(currentResources + ",心电图机");
+        } else {
+            $allocation.setAllocatedResources("心电图机");
+        }
+        $allocation.setSpecialRequirements("需要心电图检查，建议心内科会诊");
+        
+        System.out.println("规则触发：胸痛患者特殊资源分配");
+end
+
+// 规则4：呼吸困难患者处理
+rule "Dyspnea Patient Allocation"
+    when
+        $triage : TriageRecord(chiefComplaint matches ".*呼吸困难.*")
+        $diagnosis : DiagnosisResult(triageRecord == $triage)
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setAllocatedDepartment("呼吸科");
+        $allocation.setPriorityScore($allocation.getPriorityScore() + 15);
+        String currentResources = $allocation.getAllocatedResources();
+        if (currentResources != null && !currentResources.isEmpty()) {
+            $allocation.setAllocatedResources(currentResources + ",氧气,雾化器");
+        } else {
+            $allocation.setAllocatedResources("氧气,雾化器");
+        }
+        $allocation.setSpecialRequirements("需要血气分析，胸部X线检查");
+        
+        System.out.println("规则触发：呼吸困难患者特殊资源分配");
+end
+
+// 规则5：高龄患者特殊关照
+rule "Elderly Patient Special Care"
+    when
+        $triage : TriageRecord(patient.age >= 70)
+        $diagnosis : DiagnosisResult(triageRecord == $triage)
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setPriorityScore($allocation.getPriorityScore() + 10);
+        $allocation.setSpecialRequirements($allocation.getSpecialRequirements() + ";高龄患者，需要特殊关照");
+        
+        System.out.println("规则触发：高龄患者特殊关照");
+end
+
+// 规则6：儿童患者处理
+rule "Pediatric Patient Allocation"
+    when
+        $triage : TriageRecord(patient.age < 18)
+        $diagnosis : DiagnosisResult(triageRecord == $triage)
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setAllocatedDepartment("儿科急诊");
+        $allocation.setSpecialRequirements("儿童患者，需要儿科医生处理");
+        
+        System.out.println("规则触发：儿童患者专科分配");
+end
+
+// 规则7：根据AI诊断置信度调整优先级
+rule "AI Confidence Priority Adjustment"
+    when
+        $triage : TriageRecord()
+        $diagnosis : DiagnosisResult(triageRecord == $triage, diagnosisConfidence.doubleValue() < 0.5)
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setSpecialRequirements($allocation.getSpecialRequirements() + ";AI诊断置信度较低，建议人工复核");
+        
+        System.out.println("规则触发：低置信度诊断需要人工复核");
+end

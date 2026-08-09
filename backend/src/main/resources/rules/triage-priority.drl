@@ -1,0 +1,57 @@
+package com.medical.rules
+
+import com.medical.entity.TriageRecord
+import com.medical.entity.DiagnosisResult
+import com.medical.entity.ResourceAllocation
+
+// 分诊优先级规则
+
+rule "Level 1 Triage Priority"
+    when
+        $triage : TriageRecord(triageLevel == 1)
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setPriorityScore(100);
+        $allocation.setEstimatedWaitTime(0);
+        System.out.println("设置I级分诊最高优先级");
+end
+
+rule "Level 2 Triage Priority"
+    when
+        $triage : TriageRecord(triageLevel == 2)
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setPriorityScore(80);
+        $allocation.setEstimatedWaitTime(10);
+        System.out.println("设置II级分诊高优先级");
+end
+
+rule "Level 3 Triage Priority"
+    when
+        $triage : TriageRecord(triageLevel == 3)
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setPriorityScore(60);
+        $allocation.setEstimatedWaitTime(30);
+        System.out.println("设置III级分诊中优先级");
+end
+
+rule "Level 4 Triage Priority"
+    when
+        $triage : TriageRecord(triageLevel == 4)
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setPriorityScore(40);
+        $allocation.setEstimatedWaitTime(60);
+        System.out.println("设置IV级分诊较低优先级");
+end
+
+rule "Level 5 Triage Priority"
+    when
+        $triage : TriageRecord(triageLevel == 5)
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setPriorityScore(20);
+        $allocation.setEstimatedWaitTime(120);
+        System.out.println("设置V级分诊最低优先级");
+end

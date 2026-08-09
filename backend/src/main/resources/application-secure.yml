@@ -1,0 +1,135 @@
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: medical-web-backend
+  
+  # 🛡️ 安全数据库配置 - 使用环境变量
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:medical_web}?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME:medical}
+    password: ${DB_PASSWORD:}  # 🔴 生产环境必须设置强密码
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      leak-detection-threshold: 60000
+    
+  jpa:
+    hibernate:
+      ddl-auto: validate  # 生产环境使用validate
+    show-sql: false     # 生产环境关闭SQL日志
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: false
+        jdbc:
+          batch_size: 20
+        order_inserts: true
+        order_updates: true
+        
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: NON_NULL  # 不序列化null值
+
+# 🛡️ 安全JWT配置
+jwt:
+  secret: ${JWT_SECRET:medical-web-jwt-secret-key-change-this-in-production-32-chars-minimum}
+  expiration: ${JWT_EXPIRATION:86400000}  # 24小时
+  refresh-expiration: ${JWT_REFRESH_EXPIRATION:604800000}  # 7天
+
+# 🛡️ 安全MQTT配置
+mqtt:
+  broker:
+    url: tcp://${MQTT_HOST:localhost}:${MQTT_PORT:1883}
+  client:
+    id: ${MQTT_CLIENT_ID:medical-cloud-server}
+    username: ${MQTT_USERNAME:}
+    password: ${MQTT_PASSWORD:}
+  topic:
+    triage: "medical/triage/data"
+    device:
+      status: "medical/device/status"
+    heartbeat: "medical/device/heartbeat"
+    final: "medical/triage/final"
+
+# 🛡️ 安全AI配置
+medical:
+  ai:
+    provider: "baichuan"
+    model:
+      base-url: ${BAICHUAN_BASE_URL:https://api.baichuan-ai.com/v1}
+      api-key: ${BAICHUAN_API_KEY:}  # 🔴 生产环境必须设置
+      name: ${BAICHUAN_MODEL_NAME:Baichuan2-Turbo-192k}
+      temperature: ${BAICHUAN_TEMPERATURE:0.2}
+      max-tokens: ${BAICHUAN_MAX_TOKENS:1024}
+  
+  vector:
+    chroma:
+      url: ${CHROMA_URL:http://localhost:8000}
+      collection: ${CHROMA_COLLECTION:medical-knowledge}
+    embedding:
+      model: ${EMBEDDING_MODEL:all-minilm-l6-v2}
+      dimension: ${EMBEDDING_DIMENSION:384}
+    
+    medical:
+      enable-drug-interaction-check: ${ENABLE_DRUG_CHECK:true}
+      enable-prognosis-assessment: ${ENABLE_PROGNOSIS:true}
+      confidence-threshold: ${CONFIDENCE_THRESHOLD:0.8}
+      max-differential-diagnosis: ${MAX_DIFF_DIAGNOSIS:5}
+
+# Drools规则引擎配置
+drools:
+  rules:
+    path: "classpath:rules/"
+    reload: ${DROOLS_RELOAD:false}  # 生产环境关闭热重载
+
+# 🛡️ 生产环境日志配置
+logging:
+  level:
+    root: ${LOG_LEVEL:INFO}
+    com.medical: ${MEDICAL_LOG_LEVEL:INFO}
+    org.springframework.security: ${SECURITY_LOG_LEVEL:WARN}
+    org.hibernate.SQL: ${SQL_LOG_LEVEL:WARN}
+    org.hibernate.type.descriptor.sql.BasicBinder: ${BINDER_LOG_LEVEL:WARN}
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%X{traceId}] %logger{36} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level [%X{traceId}] %logger{36} - %msg%n"
+  file:
+    name: ${LOG_FILE:logs/medical-web.log}
+    max-size: 100MB
+    max-history: 30
+    total-size-cap: 1GB
+
+# 🛡️ 安全跨域配置
+cors:
+  allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:5173}
+  allowed-methods: GET,POST,PUT,DELETE,OPTIONS
+  allowed-headers: "*"
+  allow-credentials: ${CORS_ALLOW_CREDENTIALS:true}
+  max-age: 3600
+
+# 🛡️ 安全配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+      base-path: /actuator
+  endpoint:
+    health:
+      show-details: when-authorized
+  security:
+    enabled: true
+
+# 应用配置
+app:
+  name: Medical Emergency Triage System
+  version: 2.0.0
+  environment: ${APP_ENV:development}

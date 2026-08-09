@@ -1,0 +1,44 @@
+package com.medical.rules
+
+import com.medical.entity.TriageRecord
+import com.medical.entity.DiagnosisResult  
+import com.medical.entity.ResourceAllocation
+import com.medical.entity.User
+
+// 医生分配规则
+
+rule "Assign Senior Doctor for Critical Cases"
+    when
+        $triage : TriageRecord(triageLevel <= 2)
+        $allocation : ResourceAllocation(triageRecord == $triage, assignedDoctor == null)
+    then
+        $allocation.setAllocationReason($allocation.getAllocationReason() + ";需要高年资医生处理");
+        System.out.println("规则触发：危重患者需要高年资医生");
+end
+
+rule "Cardiology Consultation for Chest Pain"
+    when
+        $triage : TriageRecord(chiefComplaint matches ".*胸痛.*")
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setSpecialRequirements($allocation.getSpecialRequirements() + ";建议心内科会诊");
+        System.out.println("规则触发：胸痛患者建议心内科会诊");
+end
+
+rule "Neurology Consultation for Headache"
+    when
+        $triage : TriageRecord(chiefComplaint matches ".*头痛.*")
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setSpecialRequirements($allocation.getSpecialRequirements() + ";建议神经科会诊");
+        System.out.println("规则触发：头痛患者建议神经科会诊");
+end
+
+rule "Surgery Consultation for Abdominal Pain"
+    when
+        $triage : TriageRecord(chiefComplaint matches ".*腹痛.*")
+        $allocation : ResourceAllocation(triageRecord == $triage)
+    then
+        $allocation.setSpecialRequirements($allocation.getSpecialRequirements() + ";建议外科会诊");
+        System.out.println("规则触发：腹痛患者建议外科会诊");
+end

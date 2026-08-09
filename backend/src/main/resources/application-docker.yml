@@ -1,0 +1,82 @@
+# 🐳 医疗急诊分诊系统 - Docker环境配置
+# 用于Docker容器化部署的特殊配置
+
+spring:
+  # 🐳 数据库连接配置（Docker网络）
+  datasource:
+    url: jdbc:mysql://${DB_HOST:mysql}:${DB_PORT:3306}/${DB_NAME:medical_web}?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME:medical}
+    password: ${DB_PASSWORD}
+    hikari:
+      # 🐳 Docker环境优化的连接池配置
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+      idle-timeout: 300000
+      leak-detection-threshold: 60000
+  
+  # 🐳 JPA配置
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: false
+
+  # 🐳 Redis配置（Docker网络）
+  redis:
+    host: ${REDIS_HOST:redis}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    database: 0
+    timeout: 3000
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 10
+        min-idle: 2
+
+# 🐳 日志配置
+logging:
+  level:
+    root: INFO
+    com.medical: INFO
+    org.springframework.security: WARN
+  file:
+    name: /app/logs/medical-web.log
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"
+
+# 🐳 监控配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+  server:
+    port: 8081
+
+# 🐳 MQTT配置（边缘端通信）
+mqtt:
+  broker:
+    url: tcp://${MQTT_HOST:mosquitto}:${MQTT_PORT:1883}
+  client:
+    id: medical-cloud-docker
+  username: ""
+  password: ""
+  topic:
+    triage: "medical/triage/data"
+    device:
+      status: "medical/device/status"
+    heartbeat: "medical/device/heartbeat"
+    final: "medical/triage/final"
+
+# 🐳 应用配置
+app:
+  environment: docker
+  containerized: true
