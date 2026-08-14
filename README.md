@@ -1,4 +1,4 @@
-# 智能医疗急诊分诊管理平台
+# 基于边缘-云端协同的多模态AI分诊与诊断系统的设计与实现
 
 > 基于 Spring Boot、Vue 3、LangChain4j、Drools、MQTT 与 Jetson 边缘计算的端云协同智能急诊分诊系统。
 
